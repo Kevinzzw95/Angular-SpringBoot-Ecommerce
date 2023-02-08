@@ -1,0 +1,24 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: customer
+
+spring.data.mongodb.uri: mongodb+srv://**
+
+spring.data.rest.base-path: /api
+
+allowed.origins: "*"
+
+spring.data.rest.detection-strategy: annotated
+
+okta.oauth2.client-id: *
+okta.oauth2.issuer: https://***.okta.com/oauth2/default
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true

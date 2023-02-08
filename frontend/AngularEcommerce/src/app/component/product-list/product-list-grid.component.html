@@ -1,0 +1,86 @@
+<!-- Section-->
+<div class="main-content">
+<!--<section class="py-5">-->
+  <div class="container px-4 px-lg-10 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+      <div *ngFor="let tempProduct of products" class="col mb-5">
+        <div class="card h-100">
+          <!-- Product image-->
+          <a routerLink="/products/{{ tempProduct.id }}">
+            <img class="card-img-top" src="{{ tempProduct.imageUrl }}" alt="..." />
+          </a>
+
+          <!-- Product details-->
+          <div class="card-body p-4">
+            <div class="text-center">
+              <!-- Product name-->
+              <a routerLink="/products/{{ tempProduct.id }}">
+                <h5 class="fw-bolder">{{ tempProduct.name }}</h5>
+              </a>
+
+              <!-- Product price-->
+              <div>
+                {{ tempProduct.unitPrice | currency:'CAD' }}
+              </div>
+
+            </div>
+          </div>
+          <!-- Product actions-->
+          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-center">
+              <button (click)="addToCart(tempProduct)" class="btn btn-outline-dark mt-auto">Add to cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- if not found -->
+    <div *ngIf="products?.length===0" class="alert alert-warning col-mid-12" role="alert">
+      No Products Found!
+    </div>
+
+  </div>
+
+<!--</section>-->
+  <!-- Pagination -->
+  <div class="footer-pagination">
+    <div class="row">
+      <div class="col-mid-6"></div>
+
+      <div class="col-mid-6">
+        <div class="row">
+
+          <div class="col-mid-9" style="padding-left: 70%">
+
+            <ngb-pagination [(page)]="thePageNumber"
+                            [pageSize]="thePageSize"
+                            [maxSize]="5"
+                            [boundaryLinks]="true"
+                            [collectionSize]="theTotalElements"
+                            (pageChange)="listProducts()">
+
+            </ngb-pagination>
+
+
+          </div>
+
+          <div class="col-mid-3 mt-2" style="padding-left: 70%;">
+            <span class="mr-2">Page Size</span>
+
+            <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
+              <option selected="selected">5</option>
+              <option>10</option>
+              <option>15</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

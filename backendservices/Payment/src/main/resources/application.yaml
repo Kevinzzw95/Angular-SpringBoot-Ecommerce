@@ -1,0 +1,27 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: payment
+
+spring.data.mongodb.uri: mongodb+srv://rootuser:rootpass@cluster0.ir2pvk3.mongodb.net/ecommerce?retryWrites=true&w=majority
+
+spring.data.rest.base-path: /api
+
+allowed.origins: "*"
+
+spring.data.rest.detection-strategy: annotated
+
+spring.kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    properties:
+      spring.json.trusted.packages: "*"
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+spring.output.ansi.enabled: ALWAYS

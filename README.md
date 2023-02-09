@@ -7,7 +7,7 @@
 • Microservices(inventory, order, customer, payment) were implemented via SpringCloud. Applied service discovery using Eureka and REST API clients using Feign.
 • Applied message queue to handle order process among order service, payment service and inventory service via Kafka stream.
 ### System Diagram
-![avatar](/architecture.png)png"/></div>
+![avatar](/architecture.png)
 ### Home Page
 ![avatar](/products.png)
 ### Login page
